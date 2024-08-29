@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CRUD Estudantes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body>
+    <h1 class="text-center">CRUD Estudantes</h1> <!-- Usar classe Bootstrap para centralizar -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-right mb-3"> <!-- Alinhando o botão à direita e adicionando margem -->
+                <a href="/add" class="btn btn-primary">Adicionar Estudante</a>
+            </div>
+            <div class="col-xs-12">
+                <table class="table table-bordered"> <!-- Adicionando borda à tabela -->
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for e in estudantes %}
+                        <tr>
+                            <td>{{ e.nome }}</td>
+                            <td>{{ e.idade }}</td>
+                            <td>{{ e.id }}
+                                <a href="/edit/{{ e.id }}" class="btn btn-warning">Editar</a>
+                                <a href="/delete/{{ e.id }}" class="btn btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</body>
+</html>
